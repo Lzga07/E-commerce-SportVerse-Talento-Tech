@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+/* Fuente para la palabra RETRO en Hero */
+@font-face {
+    font-family: "Prisma";
+    src: url("prisma/Prisma.ttf") format("truetype");
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+}
+
+/* Tipografía base */
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #222;
+}
+
+h4 {
+    font-size: 20px;
+    color: #222;
+}
+
+h6 {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p {
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+
+body {
+    width: 100%;
+}
+
+/* Clases utilitarias */
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+/* ====== HEADER Y NAVEGACIÓN ====== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #E3E6f3;
+    /* El header fijo al hacer scroll */
+    z-index: 999;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+}
+
+/* lista de navegacion en horizontal */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar li {
+    list-style: none;
+    padding: 0 20px;
+}  
+
+.navbar a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.navbar a:hover {
+    color: #088178;
+}
+
+/* Botón menú desplegable solo para mobile */
+
+.mobile {
+    display: none;
+    align-items: center;
+}
+
+/* Responsive menú deslizante */
+
+@media(max-width: 799px) {
+    .navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #E3E6f3;
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    .navbar li {
+        margin-bottom: 25px;
+    }
+
+    .mobile{
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile i{
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+}
+
+/* 
+========================================================
+ HERO
+  Sección principal con imagen de fondo y texto destacado
+======================================================== */
+
+.hero {
+    background-image: url("img/1Hero.png");
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 95vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center 35%;
+    padding: clamp(32px, 6vh, 72px) 24px 0;
+    margin-bottom: 40px;
+}
+
+.hero .hero-content {
+    width: min(100%, 900px);
+    z-index: 1;
+    text-align: center;
+}
+
+.hero .hero-content h4 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.hero .hero-content h2 {
+    color: #f4c95d;
+    margin-bottom: 8px;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+}
+
+.hero .hero-content h1 {
+    color: #fff;
+    margin: 0 auto 12px;
+    font-size: clamp(28px, 3.8vw, 48px);
+    line-height: 1.12;
+}
+
+.hero .hero-content .hero-retro {
+    color: #f4c95d;
+    font-family: "Prisma", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.hero .hero-content p {
+    color: #f2f3f5;
+    margin: 0 auto 22px;
+    font-size: clamp(16px, 1.7vw, 20px);
+}
+
+.hero .hero-content button {
+    background-color: #f4c95d;
+    color: #17202b;
+    padding: 14px 32px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.hero .hero-content button:hover {
+    background-color: #ffda78;
+    transform: translateY(-2px);
+}
+
+/* Responsive hero */
+@media (max-width: 1200px) {
+    .hero {
+        height: 78vh;
+        min-height: 520px;
+        background-position: center 35%;
+        padding: 32px 18px 0;
+    }
+
+    .hero .hero-content h1 {
+        max-width: 500px;
+    }
+}
+
+/* ======= BANNER ======== */
+.banner {
+    width: 100%;
+    height: 40vh;
+    background-image: url(img/banner2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner h4{
+    color: white;
+    font-size: 1rem;
+}
+
+.banner h2 {
+    color: white;
+    font-size: 30px;
+}
+
+span {
+    color: red;
+    font-weight: bold;
+}
