@@ -62,13 +62,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 80px;
-    background-color: #E3E6f3;
+    padding: 28px 80px;
+    background-color: #fff;
     /* El header fijo al hacer scroll */
     z-index: 999;
     position: sticky;
     top: 0px;
     left: 0px;
+}
+
+/* El contenedor ocupa todo el ancho para centrar SportVerse */
+.nav-wrap {
+    width: 100%;
 }
 
 /* lista de navegacion en horizontal */
@@ -79,20 +84,47 @@ body {
     align-items: center;
 }
 
+/* Items de ancho fijo y juntos: SportVerse queda justo en el medio */
 .navbar li {
     list-style: none;
-    padding: 0 20px;
-}  
+    flex: 0 0 120px;
+    text-align: center;
+}
+
+.navbar li.brand-item {
+    flex: 0 0 280px;
+}
 
 .navbar a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #17202b;
 }
 
 .navbar a:hover {
-    color: #088178;
+    color: #4a90d0;
+}
+
+/* Logo en texto */
+.navbar a.brand,
+.brand {
+    font-family: "Prisma", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #4a90d0;
+    text-decoration: none;
+}
+
+.navbar a.brand:hover,
+.brand:hover {
+    color: #17202b;
+}
+
+/* El logo de texto extra solo se ve en mobile */
+.brand-mobile {
+    display: none;
 }
 
 /* Botón menú desplegable solo para mobile */
@@ -105,6 +137,23 @@ body {
 /* Responsive menú deslizante */
 
 @media(max-width: 799px) {
+    .header {
+        padding: 20px;
+    }
+
+    .nav-wrap {
+        width: auto;
+    }
+
+    .brand-mobile {
+        display: block;
+        font-size: 2rem;
+    }
+
+    .brand-item {
+        display: none;
+    }
+
     .navbar{
         display: flex;
         flex-direction: column;
@@ -121,6 +170,9 @@ body {
     }
 
     .navbar li {
+        flex: none;
+        text-align: left;
+        padding: 0 20px;
         margin-bottom: 25px;
     }
 
@@ -227,6 +279,98 @@ body {
     }
 }
 
+/* Sección Productos */
+
+.section-productos {
+    text-align: center;
+}
+
+/* Contenedor Flexbox de las cards */
+.section-productos .productos-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Card individual de producto */
+.section-productos .productos-container .producto {
+    width: 23%;
+    min-width: 250px;
+    margin: 15px 0;
+    padding: 10px 12px;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    transition: 0.8s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-productos .productos-container .producto img {
+    width: 100%;
+    border-radius: 20px;
+    height: 250px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Descripción dentro de la card */
+.section-productos .productos-container .producto .producto-descripcion {
+    text-align: start;
+    padding: 10px 0;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.section-productos .productos-container .producto .producto-descripcion span {
+    color: #606063;
+    font-size: 12px;
+}
+
+.section-productos .productos-container .producto .producto-descripcion h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 16px;
+}
+
+/* Precio del producto */
+.section-productos .productos-container .producto .producto-descripcion h4 {
+    padding-top: 7px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    margin-top: auto;
+}
+
+/* Botón agregar al carrito */
+.section-productos .productos-container .producto .carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 12px;
+    border-radius: 8px;
+    background-color: #4a90d0;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+
+.section-productos .productos-container .producto .carrito:hover {
+    background-color: #3e7eb9;
+}
+
 /* ======= BANNER ======== */
 .banner {
     width: 100%;
@@ -235,19 +379,42 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.banner h4{
-    color: white;
-    font-size: 1rem;
+.banner h4 {
+    color: #fff;
+    font-size: 16px;
 }
 
 .banner h2 {
-    color: white;
+    color: #fff;
     font-size: 30px;
+    padding: 10px 0;
 }
 
-span {
-    color: red;
-    font-weight: bold;
+.banner span {
+    color: #f4c95d;
+}
+
+.banner button {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+.banner button:hover {
+    background: #f4c95d;
+    color: #fff;
 }
